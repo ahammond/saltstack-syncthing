@@ -19,4 +19,4 @@
 
 ### Known Issues ###
 
-* No API password support , see #1
+* No API password support , see issue #1
