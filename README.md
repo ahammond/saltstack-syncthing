@@ -13,6 +13,6 @@
 * Do a `salt '*' saltutil.sync_grains` to sync your grains with your minions
 * Do a `salt '*' grains.items` to see if syncthing shows up
 
-### Comming Soon ###
+### Coming Soon ###
 
 * Saltstack SLS for Syncthing
