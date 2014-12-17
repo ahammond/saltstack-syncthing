@@ -20,11 +20,3 @@ syncthing_init:
       user: {{ pillar['syncthing']['user'] }}
       group: {{ pillar['syncthing']['group'] }}
       installdir: {{ pillar['syncthing']['installdir'] }}
-
-#Enable if CSF is managed by saltstack as well
-#syncthing_fw:
-#  file.append:
-#    - name: /etc/csf/csf.allow
-#    - text:
-#      - "## Syncthing"
-#      - "tcp|in|d=22000|d={{ pillar['csf']['syncthing'] }}"
