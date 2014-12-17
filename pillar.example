@@ -1,0 +1,9 @@
+#Notes:
+#  installdir is best set to a user's home directory for organization's sake.
+#  Syncthing will be installed in {{ installdir }}/bin, the folder will be created if it does not exist. 
+syncthing:
+  installdir: /home/startledphoenix
+  download_link: https://github.com/syncthing/syncthing/releases/download/v0.10.11/syncthing-linux-amd64-v0.10.11.tar.gz
+  download_md5: 00551e0c2b8104f9f0ceedf9986b5096
+  user: startledphoenix
+  group: startledphoenix
