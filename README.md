@@ -16,3 +16,7 @@
 ### Coming Soon ###
 
 * Saltstack SLS for Syncthing
+
+### Known Issues ###
+
+* No API password support , see #1
