@@ -20,3 +20,4 @@
 ### Known Issues ###
 
 * No API password support , see issue #1
+* SLS does not automatically download latest syncthing version, see issue #2
