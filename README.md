@@ -12,6 +12,7 @@
 * Adjust `syncthing_api` in syncthing.py to change the API url if necessary
 * Do a `salt '*' saltutil.sync_grains` to sync your grains with your minions
 * Do a `salt '*' grains.items` to see if syncthing shows up
+* Use pillar.example as an example as to how to configure the SLS.
 
 ### Coming Soon ###
 
@@ -21,3 +22,4 @@
 
 * No API password support , see issue #1
 * SLS does not automatically download latest syncthing version, see issue #2
+* No various architecture support, see issue #3
