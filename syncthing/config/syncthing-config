@@ -1,6 +1,6 @@
 <configuration version="7">
 {%- for folder, foldernodes in pillar['syncthing']['folders'].iteritems() %}
-    <folder id="{{ folder }}" path="/home/startledphoenix/Sync/{{ folder }}" ro="false" rescanIntervalS="60" ignorePerms="false">
+    <folder id="{{ folder }}" path="{{ pillar['syncthing']['installdir'] }}/Sync/{{ folder }}" ro="false" rescanIntervalS="60" ignorePerms="false">
 {%- for node in foldernodes -%}
 {%- for host, data in salt['mine.get']('*', 'grains.items', expr_form = 'glob').items() -%}
 {%- for key, value in data.items() -%}
