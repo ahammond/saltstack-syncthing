@@ -1,10 +1,12 @@
 # README #
 
+WARNING:
+Items in this repository are under heavy development and my change from time to time. I suggest forking if you are going to use it in a production environment.
 
 ### What does this repository contain? ###
 
 * Custom Saltstack grain for Syncthing
-* Saltstack SLS for Syncthing (Coming Soon, Under Development)
+* Saltstack SLS for Syncthing
 
 ### Features ##
 TODO
