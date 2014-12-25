@@ -20,3 +20,15 @@ syncthing_init:
       user: {{ pillar['syncthing']['user'] }}
       group: {{ pillar['syncthing']['group'] }}
       installdir: {{ pillar['syncthing']['installdir'] }}
+
+  service.running:
+    - name: syncthing
+    - enable: True
+    - watch:
+      - file: {{ pillar['syncthing']['installdir'] }}/.config/syncthing/config.xml
+
+syncthing_config:
+  file.managed:
+    - name: {{ pillar['syncthing']['installdir'] }}/.config/syncthing/config.xml
+    - source: salt://syncthing/config/syncthing-config
+    - template: jinja
