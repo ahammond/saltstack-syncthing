@@ -1,0 +1,20 @@
+syncthing:
+  apikey: overridden by pillar
+  # NOTE: To change the GUI / API port, you must either override it in the pillar
+  # or change it both here and in syncthing/_modules.py
+  apiport: 8384
+  bindir: calculated in map.jinja
+  datadir: /data/syncthing
+  download_file: syncthing-linux-amd64-v0.11.26
+  download_sha256: c58349e3183da8ca5d865031b0185bb84567deda057ca4a92f9bfd1259a0e78b
+  homedir: calculated in map.jinja
+  installdir: /opt
+  listen_address: 0.0.0.0:8385
+  local_announce_port: 8386
+  user: syncthing
+  group: syncthing
+  folders:
+    ar: {}
+    rss2search: {}
+    sd: {}
+    zvellodb: {}

@@ -1,0 +1,54 @@
+<configuration version="11">
+{%- for folder, folder_info in syncthing.folders | dictsort %}
+    <folder id="{{ folder }}" path="{{ syncthing.datadir }}/{{ folder }}" ro="{{ folder_info.get('ro', 'false') }}" rescanIntervalS="60" ignorePerms="false" autoNormalize="true">
+{%-   for host, grains in syncthing_grains | dictsort %}
+        <device id="{{ grains['syncthing']['status']['myID'] }}"></device>
+{%-   endfor %}
+        <minDiskFreePct>1</minDiskFreePct>
+        <versioning></versioning>
+        <copiers>0</copiers>
+        <pullers>0</pullers>
+        <hashers>0</hashers>
+        <order>random</order>
+        <ignoreDelete>false</ignoreDelete>
+    </folder>
+{%- endfor %}
+{%- for host, grains in syncthing_grains | dictsort %}
+    <device id="{{ grains['syncthing']['status']['myID'] }}" name="{{ host }}" compression="metadata" introducer="true">
+        <address>dynamic</address>
+    </device>
+{%- endfor %}
+    <gui enabled="true" tls="false">
+        <address>0.0.0.0:{{ syncthing.apiport }}</address>
+        <apikey>{{ syncthing.apikey }}</apikey>
+    </gui>
+    <options>
+        <listenAddress>{{ syncthing.listen_address }}</listenAddress>
+        <globalAnnounceServer>udp4://announce.syncthing.net:22026</globalAnnounceServer>
+        <globalAnnounceEnabled>false</globalAnnounceEnabled>
+        <localAnnounceEnabled>true</localAnnounceEnabled>
+        <localAnnouncePort>{{ syncthing.local_announce_port }}</localAnnouncePort>
+        <localAnnounceMCAddr>[ff32::5222]:21026</localAnnounceMCAddr>
+        <maxSendKbps>0</maxSendKbps>
+        <maxRecvKbps>0</maxRecvKbps>
+        <reconnectionIntervalS>60</reconnectionIntervalS>
+        <startBrowser>false</startBrowser>
+        <upnpEnabled>false</upnpEnabled>
+        <upnpLeaseMinutes>0</upnpLeaseMinutes>
+        <upnpRenewalMinutes>30</upnpRenewalMinutes>
+        <upnpTimeoutSeconds>10</upnpTimeoutSeconds>
+        <urAccepted>-1</urAccepted>
+        <urUniqueID></urUniqueID>
+        <restartOnWakeup>true</restartOnWakeup>
+        <autoUpgradeIntervalH>0</autoUpgradeIntervalH>
+        <keepTemporariesH>24</keepTemporariesH>
+        <cacheIgnoredFiles>true</cacheIgnoredFiles>
+        <progressUpdateIntervalS>5</progressUpdateIntervalS>
+        <symlinksEnabled>true</symlinksEnabled>
+        <limitBandwidthInLan>false</limitBandwidthInLan>
+        <databaseBlockCacheMiB>0</databaseBlockCacheMiB>
+        <pingTimeoutS>30</pingTimeoutS>
+        <pingIdleTimeS>60</pingIdleTimeS>
+        <minHomeDiskFreePct>1</minHomeDiskFreePct>
+    </options>
+</configuration>
